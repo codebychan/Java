@@ -1,2 +1,0 @@
-class Java {
-  System.out.println("this")

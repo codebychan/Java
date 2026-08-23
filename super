@@ -1,0 +1,62 @@
+// 1. The Superclass (Parent Class)
+class Animal {
+    // Parent variable
+    String name = "Generic Animal";
+
+    // Parent constructor
+    public Animal(String name) {
+        this.name = name;
+        System.out.println("1. Animal constructor called for: " + this.name);
+    }
+
+    // Parent method
+    public void makeSound() {
+        System.out.println("The animal makes a sound.");
+    }
+}
+
+// 2. The Subclass (Child Class) inheriting from Animal
+class Dog extends Animal {
+    // Child variable with the exact same name (Variable Hiding)
+    String name = "Dog";
+
+    public Dog(String nameFromMain) {
+        // USE CASE 1: Call the parent's parameterized constructor
+        // Note: super() must always be the very first line in a subclass constructor!
+        super(nameFromMain); 
+        
+        System.out.println("2. Dog constructor called.");
+    }
+
+    // Overriding the parent's method
+    @Override
+    public void makeSound() {
+        System.out.println("Bark! Bark!");
+    }
+
+    public void displayInformation() {
+        // USE CASE 2: Accessing parent methods using super.methodName()
+        System.out.print("Calling parent method: ");
+        super.makeSound(); 
+
+        // Calling child method
+        System.out.print("Calling child method: ");
+        makeSound(); 
+
+        // USE CASE 3: Accessing parent variables using super.variableName
+        System.out.println("Child class variable 'name': " + this.name);
+        System.out.println("Superclass variable 'name': " + super.name);
+    }
+}
+
+// 3. Execution Main Class
+public class SuperClassUnderstanding {
+    public static void main(String[] args) {
+        System.out.println("--- Instantiating the Subclass ---");
+        // Creating a Dog object which automatically triggers constructor chaining
+        Dog myDog = new Dog("Buddy");
+
+        System.out.println("\n--- Triggering the Information Display ---");
+        myDog.displayInformation();
+    }
+}
