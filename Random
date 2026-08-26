@@ -1,2 +1,8 @@
 class Student {
-int age
+int age;
+int roll;
+string name;
+}
+public static void main(String[] args) {
+Student S= new Student();
+
