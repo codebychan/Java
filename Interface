@@ -1,2 +1,3 @@
 interface animal {
-void 
+void dog() {
+system.out.println("
